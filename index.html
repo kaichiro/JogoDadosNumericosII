@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="tp-Br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <script src=".\js\MotorJogo.js"></script>
+    <script src=".\js\JogadorA.js"></script>
+    <script src=".\js\JogadorB.js"></script>
+
+    <link rel="stylesheet" href="./css/css.main.css">
+    <title>Raciocínio Lógico Matemático</title>
+</head>
+
+<body onload="InicializarPagina()">
+
+    <div>
+        <h3>Configurações do jogo</h3>
+        Finalizar o jogo em
+        <input type="number" name="MaxLevel" id="MaxLevel" value="10" width="200"> ponto(s).
+        <br> Quantidade de Testes por Jogada
+        <input type="number" name="QtdeTestePorJogada" id="QtdeTestePorJogada" value="3">
+        <!-- <br>Level Corrente:
+        <input type="text" name="LevelCorrente" id="LevelCorrente" value="1" disabled> -->
+
+        <br>
+        <br>
+        <input id="IniciarJogo" onclick="IniciarJogo()" type="button" value="Iniciar Jogo!">
+        <br>
+        <h1 id="BoasVindasJogo">Jogo - Dados com Arranjo Aritmético</h1>
+        <br>
+        <table class="tblMain" id="tblMain" border="4">
+            <th id="NomeJogadorA">Jogador A</th>
+            <th id="NomeJogadorB">Jogador B</th>
+            <tr>
+                <td>a11</td>
+                <td>a12</td>
+            </tr>
+            <tr>
+                <td>
+                    <input id="SortearDadosJogadorA" type="button" value="Sortear Dados Jogador A" onclick="JogaDadosJogadorA()">
+                </td>
+                <td>
+                    <input id="SortearDadosJogadorB" type="button" value="Sortear Dados Jogador B" onclick="JogaDadosJogadorB()">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <table id="tblJogadorA" border="2">
+                        <tr>
+                            <td id="ImgDado1JogadorA"></td>
+                            <td id="ImgDado2JogadorA"></td>
+                            <td id="ImgDado3JogadorA"></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <select id="OperacaoJogadorA_Dado1">
+                                    <option value="soma">+</option>
+                                    <option value="subtracao">-</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select id="OperacaoJogadorA_Dado2">
+                                    <option value="soma">+</option>
+                                    <option value="subtracao">-</option>
+                                    <option value="multiplicacao">*</option>
+                                    <option value="divisao">/</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select id="OperacaoJogadorA_Dado3">
+                                    <option value="soma">+</option>
+                                    <option value="subtracao">-</option>
+                                    <option value="multiplicacao">*</option>
+                                    <option value="divisao">/</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td id="ValorDado1JogadorA">0</td>
+                            <td id="ValorDado2JogadorA">0</td>
+                            <td id="ValorDado3JogadorA">0</td>
+                        </tr>
+                    </table>
+                </td>
+                <td>
+                    <table id="tblJogadorB" border="2">
+                        <tr>
+                            <td id="ImgDado1JogadorB"></td>
+                            <td id="ImgDado2JogadorB"></td>
+                            <td id="ImgDado3JogadorB"></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <select id="OperacaoJogadorB_Dado1">
+                                    <option value="soma">+</option>
+                                    <option value="subtracao">-</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select id="OperacaoJogadorB_Dado2">
+                                    <option value="soma">+</option>
+                                    <option value="subtracao">-</option>
+                                    <option value="multiplicacao">*</option>
+                                    <option value="divisao">/</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select id="OperacaoJogadorB_Dado3">
+                                    <option value="soma">+</option>
+                                    <option value="subtracao">-</option>
+                                    <option value="multiplicacao">*</option>
+                                    <option value="divisao">/</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td id="ValorDado1JogadorB">0</td>
+                            <td id="ValorDado2JogadorB">0</td>
+                            <td id="ValorDado3JogadorB">0</td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button id="TestaCombinacaoJogadorA" onclick="GetOperacaoJogadorA()">Testar Combinação</button>
+                </td>
+                <td>
+                    <button id="TestaCombinacaoJogadorB" onclick="GetOperacaoJogadorB()">Testar Combinação</button>
+                </td>
+            </tr>
+            <tr>
+                <td id="ResultadoOperacaoJogadorA"></td>
+                <td id="ResultadoOperacaoJogadorB"></td>
+            </tr>
+            <tr>
+                <td id="TentativasJogadorA"></td>
+                <td id="TentativasJogadorB"></td>
+            </tr>
+            <tr>
+                <td id="PontuacaoJogadorA">Pontuação:</td>
+                <td id="PontuacaoJogadorB">Pontuação:</td>
+            </tr>
+            <tr>
+                <td id="LevelJogadorA">Level:</td>
+                <td id="LevelJogadorB">Level:</td>
+            </tr>
+        </table>
+    </div>
+
+</body>
+
+</html>
